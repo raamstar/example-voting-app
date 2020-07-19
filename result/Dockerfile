@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN npm install -g nodemon
 ADD package.json /app/package.json
-RUN npm token create --read-only
+
 RUN npm token create
 RUN export NPM_TOKEN="00000000-0000-0000-0000-000000000000"
 RUN source ~/.profile
