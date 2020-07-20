@@ -27,6 +27,7 @@ spec:
          - containerPort: 5432
          
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -41,7 +42,9 @@ spec:
   selector:
     name: postgres-pod
     app: example-voting-app
+    
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -85,6 +88,7 @@ spec:
     app: example-voting-app
     
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -111,7 +115,8 @@ spec:
         - containerPort: 80
         
  ---
- apiVersion: v1
+ 
+apiVersion: v1
 kind: Service
 metadata:
   name: result-service
@@ -127,8 +132,9 @@ spec:
     name: result-app-pod
     app: example-voting-app
     
-  ---
-  apiVersion: apps/v1
+---
+  
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: voting-app-deployment
@@ -154,7 +160,8 @@ spec:
         - containerPort: 80
         
  --- 
- apiVersion: v1
+ 
+apiVersion: v1
 kind: Service
 metadata:
   name: voting-service
@@ -169,9 +176,10 @@ spec:
   selector:
     name: voting-app-pod
     app: example-voting-app
+    
  ---
  
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: worker-app-deployment
