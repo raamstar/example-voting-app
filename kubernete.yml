@@ -25,9 +25,8 @@ spec:
           value: trust
         ports:
          - containerPort: 5432
-         
-
-
+---         
+# dbService         
 apiVersion: v1
 kind: Service
 metadata:
@@ -42,9 +41,8 @@ spec:
   selector:
     name: postgres-pod
     app: example-voting-app
-    
-    
-
+---    
+#  redisDeployment   
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -69,9 +67,8 @@ spec:
         image: redis:latest
         ports:
         - containerPort: 6379
-        
-
-
+---
+# redis service       
 apiVersion: v1
 kind: Service
 metadata:
@@ -86,9 +83,8 @@ spec:
   selector:
     name: redis-pod
     app: example-voting-app
-    
-    
-
+---
+# votedeploy   
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -113,9 +109,8 @@ spec:
         image: plmnko098/result-app
         ports:
         - containerPort: 80
-        
- 
- 
+---        
+# resultservice       
 apiVersion: v1
 kind: Service
 metadata:
@@ -131,9 +126,8 @@ spec:
   selector:
     name: result-app-pod
     app: example-voting-app
-    
 ---
-  
+# votedeploy
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -158,9 +152,8 @@ spec:
         image: plmnko098/voter-app
         ports:
         - containerPort: 80
-        
- 
- 
+---
+# voteservice       
 apiVersion: v1
 kind: Service
 metadata:
@@ -176,9 +169,8 @@ spec:
   selector:
     name: voting-app-pod
     app: example-voting-app
-    
- 
- 
+---
+# workerdeploy
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -201,6 +193,3 @@ spec:
       containers:
       - name: worker-app
         image: plmnko098/worker-app
- 
- 
-
